@@ -1,0 +1,4 @@
+#!/bin/bash
+
+zellij --layout go-dev
+

@@ -1,0 +1,21 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    
+    tab name="Nvim"
+    tab name="Tooling" {
+        pane name="Air" command="air"
+        pane name="Templ" command="templ generate --watch"
+        pane name="Sqlc"
+        pane name="Goose" cwd="sql/schema"
+    }
+}
+
+pane_frames true
