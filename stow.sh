@@ -3,6 +3,7 @@
 stow alacritty
 stow bin
 stow git
+stow kde
 stow lazydocker
 stow lazygit
 stow nix
