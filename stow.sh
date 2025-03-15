@@ -3,6 +3,7 @@
 stow alacritty
 stow bin
 stow git
+stow gtk
 stow k9s
 stow kde
 stow lazydocker
