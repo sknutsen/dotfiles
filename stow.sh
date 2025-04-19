@@ -1,5 +1,6 @@
 #!/bin/bash
 
+stow ags
 stow alacritty
 stow bin
 stow git
@@ -13,4 +14,3 @@ stow nvim
 stow starship
 stow zellij
 stow zsh
-
