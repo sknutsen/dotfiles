@@ -1,30 +1,28 @@
 # ~/.zshrc
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
+autoload -Uz compinit && compinit
+autoload -U bashcompinit && bashcompinit
+
 add-zsh-hook -Uz zsh_directory_name zsh_directory_name_cdr
+
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
 zstyle ':vcs_info:*' formats '%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-
-# The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '/home/zdk/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+setopt auto_param_slash
+setopt beep extendedglob
+setopt prompt_subst
+
 HISTSIZE=1000
 SAVEHIST=1000
-setopt beep extendedglob
-bindkey -e
-# End of lines configured by zsh-newuser-install
+HISTFILE="$XDG_CACHE_HOME/zsh_history"
+HISTCONTROL=ignoreboth
 
-autoload -U bashcompinit
-bashcompinit
+bindkey -e
 
 eval "$(register-python-argcomplete portmod)"
 
@@ -43,7 +41,6 @@ precmd () {
     vcs_info 
 }
 
-setopt prompt_subst
 PROMPT='%F{5}[%F{4}%n%f@%F{1}%m%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f$ '
 eval "$(starship init zsh)"
 
