@@ -24,7 +24,7 @@ HISTCONTROL=ignoreboth
 
 bindkey -e
 
-eval "$(register-python-argcomplete portmod)"
+# eval "$(register-python-argcomplete portmod)"
 
 # End of file
 
@@ -37,13 +37,22 @@ source $HOME/zsh/env.zsh
 source $HOME/zsh/path.zsh
 source $HOME/zsh/aliases.zsh
 
-precmd () { 
+if command -v starship > /dev/null; then 
+  eval "$(starship init zsh)"
+else
+  precmd () { 
     vcs_info 
-}
+  }
 
-PROMPT='%F{5}[%F{4}%n%f@%F{1}%m%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f$ '
-eval "$(starship init zsh)"
+  PROMPT='%F{5}[%F{4}%n%f@%F{1}%m%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f$ '
+fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if command -v brew > /dev/null; then
+  if [[ $(uname) == "Linux" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
+fi
 
-source $HOME/zsh/zellij.zsh
+if command -v zellij > /dev/null; then
+  source $HOME/zsh/zellij.zsh
+fi

@@ -3,10 +3,35 @@
 # read first
 
 # default programs
-export EDITOR="nvim"
-export TERM="alacritty"
-export TERMINAL="alacritty"
-export BROWSER="firefox"
+if command -v nvim > /dev/null; then
+  export EDITOR="nvim"
+elif command -v vim > /dev/null; then
+  export EDITOR="vim"
+else
+  export EDITOR="nano"
+fi
+
+if command -v alacritty > /dev/null; then
+  export TERM="alacritty"
+  export TERMINAL="alacritty"
+elif command -v ghostty > /dev/null; then
+  export TERM="ghostty"
+  export TERMINAL="ghostty"
+elif command -v wezterm > /dev/null; then
+  export TERM="wezterm"
+  export TERMINAL="wezterm"
+elif command -v kitty > /dev/null; then
+  export TERM="kitty"
+  export TERMINAL="kitty"
+fi
+
+if command -v firefox > /dev/null; then
+  export BROWSER="firefox"
+elif command -v librewolf > /dev/null; then
+  export BROWSER="librewolf"
+elif command -v floorp > /dev/null; then
+  export BROWSER="floorp"
+fi
 
 # follow XDG base dir specification
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -45,8 +70,11 @@ export FFMPEG_DATADIR="$XDG_CONFIG_HOME/ffmpeg"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export DATE=$(date "+%A, %B %e  %_I:%M%P")
 
-export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
-export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
+if command -v fzf > /dev/null; then
+  export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
+  export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
+fi
+
 export MANPAGER="less -R --use-color -Dd+r -Du+b" # colored man pages
 
 # colored less + termcap vars

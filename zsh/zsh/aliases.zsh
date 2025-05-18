@@ -1,6 +1,8 @@
 # Aliases
-alias code=codium
-# alias go="/usr/local/go/bin/go"
+if command -v codium > /dev/null; then
+  alias code=codium
+fi
+
 alias omw="portmod openmw"
 alias rundp="~/Games/OpenMWMods/Tools/DeltaPlugin/rundp.sh"
 alias tes3cmd="~/Games/OpenMWMods/tes3cmd-0.37w"
