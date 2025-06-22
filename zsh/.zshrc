@@ -56,3 +56,8 @@ fi
 if command -v zellij > /dev/null; then
   source $HOME/zsh/zellij.zsh
 fi
+
+if [[ "$TERM" == "xterm-ghostty" ]]; then
+export TERM=xterm-256color
+fi
+
