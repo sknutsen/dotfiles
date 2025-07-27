@@ -1,6 +1,3 @@
 [submodule "nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:sknutsen/nvim.git
-[submodule "home-manager"]
-	path = nix/.config/home-manager
-	url = git@github.com:sknutsen/home-manager.git
