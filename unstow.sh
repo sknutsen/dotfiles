@@ -12,7 +12,6 @@ stow -D kitty
 stow -D kvantum
 stow -D lazydocker
 stow -D lazygit
-stow -D nix
 stow -D nvim
 stow -D qt
 stow -D rofi
