@@ -1,4 +1,4 @@
-# "$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
 [](red)\
@@ -67,12 +67,12 @@ format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-# [directory.substitutions]
-# "Documents" = "󰈙 "
-# "Downloads" = " "
-# "Music" = "󰝚 "
-# "Pictures" = " "
-# "Developer" = "󰲋 "
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""
@@ -158,8 +158,8 @@ vimcmd_replace_symbol = '[❮](bold fg:lavender)'
 vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
-show_milliseconds = true
-format = " in $duration "
+show_milliseconds = false
+format = " $duration "
 style = "bg:lavender"
 disabled = false
 show_notifications = true
