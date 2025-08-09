@@ -72,9 +72,6 @@ truncation_symbol = "…/"
 "Pictures" = " "
 "Developer" = "󰲋 "
 
-[linebreak]
-disabled = false
-
 [c]
 symbol = " "
 style = "bg:#86BBD8"
