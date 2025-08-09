@@ -1,4 +1,5 @@
 #!/bin/bash
 
-zellij --layout go-dev
-
+if command -v zellij >/dev/null; then
+  zellij --layout go-dev
+fi
